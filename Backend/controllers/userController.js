@@ -29,14 +29,14 @@ export const login = catchAsyncError(async(req, res,next)=> {
     }
     const user = await (await User.findOne({email})).isSelected("+password");
     if (!user){
-        new ErrorHandler("Invalid Email or Password",400);
+        return next (new ErrorHandler("Invalid Email or Password",400));
     }
     const isPasswordMatched = await user.comparePassword(password);
     if(!isPasswordMatched){
-        new ErrorHandler("Invalid Email or Password",400);
+        return next(new ErrorHandler("Invalid Email or Password",400));
     }
     if(user.role != role){
-        new ErrorHandler("User with this role not found",400);
+        return next(new ErrorHandler("User with this role not found",400));
     }
     sendToken(user,200,res,"User logged in successfully!");
 });
