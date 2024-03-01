@@ -2,6 +2,12 @@ import {catchAsyncError} from '../middlewares/catchAsyncError.js';
 import ErrorHandler from '../middlewares/error.js';
 import { User } from '../models/userSchema.js';
 
+
+export const register = (req, res) => {
+    // Your register function logic here
+};
+
+
 export const login = catchAsyncError(async(req, res,next)=> {
     const {name, email, phone,role,password} = req.body;
     if (!name  || !email || !phone || !password){
