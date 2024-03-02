@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Register = () => {
+const Home = () => {
     return{
 
     }
 }
-export default Register
+export default Home
