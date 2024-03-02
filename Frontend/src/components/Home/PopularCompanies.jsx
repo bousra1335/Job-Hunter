@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 const PopularCompanies = () => {
-    return{
+    return<></>;
 
-    }
-}
-export default PopularCompanies
+    
+};
+export default PopularCompanies;

@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 const PostJob = () => {
-    return{
+    return<></>;
 
-    }
-}
-export default PostJob
+    
+};
+export default PostJob;

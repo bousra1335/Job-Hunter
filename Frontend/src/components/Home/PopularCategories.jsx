@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 const PopularCategories = () => {
-    return{
+    return<></>;
 
-    }
-}
-export default PopularCategories
+    
+};
+export default PopularCategories;

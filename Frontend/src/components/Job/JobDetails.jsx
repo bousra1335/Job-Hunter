@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 const JobDetails = () => {
-    return{
+    return<></>;
 
-    }
-}
-export default JobDetails
+    
+};
+export default JobDetails;

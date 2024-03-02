@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 const ResumeModel = () => {
-    return{
+    return<></>;
 
-    }
-}
-export default ResumeModel
+    
+};
+export default ResumeModel;

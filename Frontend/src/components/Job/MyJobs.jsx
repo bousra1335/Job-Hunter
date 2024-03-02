@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 const MyJobs = () => {
-    return{
+    return<></>;
 
-    }
-}
-export default MyJobs
+    
+};
+export default MyJobs;
