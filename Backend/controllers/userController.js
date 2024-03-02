@@ -43,7 +43,7 @@ export const login = catchAsyncError(async(req, res,next)=> {
 
 export const logout = catchAsyncError(async(req,res,next)=>{
     res
-        .status(201)
+        .status(200)
         .cookie ("token","",{
             httpOnly: true,
             expires: new Data(Data.now()),
