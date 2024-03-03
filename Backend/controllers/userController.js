@@ -4,7 +4,7 @@ import { User } from '../models/userSchema.js';
 import {sendToken} from '../utils/jwtToken.js';
 
 export const register = catchAsyncError(async(req, res,next)=> {
-    const {name, email, phone,role,password} = req.body;
+    const {name, email, phone, role, password} = req.body;
     if (!name  || !email || !phone || !role || !password){
         return next(new ErrorHandler("Please fill full registration form!"));
     }
@@ -19,15 +19,15 @@ export const register = catchAsyncError(async(req, res,next)=> {
         role,
         password,
     });
-    sendToken(user,200,res,"User Registered Successfully!");
+    sendToken(user,201,res,"User Registered!");
 });
-
+    
 export const login = catchAsyncError(async(req, res,next)=> {
     const {email,password ,role} = req.body;
     if (!email ||!password || !role){
-        return next(new ErrorHandler("Please provide email, password and role.",400));
+        return next(new ErrorHandler("Please provide email, password and role.", 400));
     }
-    const user = await (await User.findOne({email})).isSelected("+password");
+    const user =  (await User.findOne({email})).isSelected("+password");
     if (!user){
         return next (new ErrorHandler("Invalid Email or Password",400));
     }
@@ -38,7 +38,7 @@ export const login = catchAsyncError(async(req, res,next)=> {
     if(user.role != role){
         return next(new ErrorHandler("User with this role not found",400));
     }
-    sendToken(user,200,res,"User logged in successfully!");
+    sendToken(user,201,res,"User logged in successfully!");
 });
 
 export const logout = catchAsyncError(async(req,res,next)=>{
@@ -53,3 +53,10 @@ export const logout = catchAsyncError(async(req,res,next)=>{
             message: "User logged out successfully!",
     });
 });
+export const getUser = catchAsyncError((req, res, next) => {
+    const user = req.user;
+    res.status(200).json({
+      success: true,
+      user,
+    });
+  });
