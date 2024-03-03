@@ -4,7 +4,7 @@ import { User } from '../models/userSchema.js';
 import {sendToken} from '../utils/jwtToken.js';
 
 export const register = catchAsyncError(async(req, res,next)=> {
-    const {name, email, phone,role,password} = req.body;
+    const {name, email, phone, role, password} = req.body;
     if (!name  || !email || !phone || !role || !password){
         return next(new ErrorHandler("Please fill full registration form!"));
     }
@@ -25,7 +25,7 @@ export const register = catchAsyncError(async(req, res,next)=> {
 export const login = catchAsyncError(async(req, res,next)=> {
     const {email,password ,role} = req.body;
     if (!email ||!password || !role){
-        return next(new ErrorHandler("Please provide email, password and role.",400));
+        return next(new ErrorHandler("Please provide email, password and role."));
     }
     const user =  (await User.findOne({email})).isSelected("+password");
     if (!user){
