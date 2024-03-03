@@ -25,7 +25,7 @@ export const register = catchAsyncError(async(req, res,next)=> {
 export const login = catchAsyncError(async(req, res,next)=> {
     const {email,password ,role} = req.body;
     if (!email ||!password || !role){
-        return next(new ErrorHandler("Please provide email, password and role."));
+        return next(new ErrorHandler("Please provide email, password and role.", 400));
     }
     const user =  (await User.findOne({email})).isSelected("+password");
     if (!user){
