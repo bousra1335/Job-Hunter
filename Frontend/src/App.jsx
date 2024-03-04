@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import "./App.css";
 import { Context } from "./main";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import Navbar from "./components/Layout/Navbar";
@@ -19,7 +19,6 @@ import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
-  
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -40,7 +39,7 @@ const App = () => {
 
   return (
     <>
-      <Router>
+      <BrowserRouter>
         <Navbar />
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -56,7 +55,7 @@ const App = () => {
         </Routes>
         <Footer />
         <Toaster />
-      </Router>
+      </BrowserRouter>
     </>
   );
 };

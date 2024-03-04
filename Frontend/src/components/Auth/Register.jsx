@@ -10,7 +10,6 @@ import {FaPhoneFlip} from "react-icons/fa6";
 import {RiLock2Fill} from "react-icons/ri";
 //import { Link as RouterLink, Navigate as RouterNavigate } from "react-router-dom";//
 
-
 const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
