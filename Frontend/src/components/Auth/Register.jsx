@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext,useState } from 'react';
 import { Context } from '../../main';
 import axios from 'axios';
 import toast from "react-hot-toast";
 import {Link, Navigate} from "react-router-dom";
-import {FaPencilAlt, FaRegUser} from "react-icons/fa";
+import {FaPencilAlt} from "react-icons/fa";
 import {MdOutlineMailOutline} from "react-icons/md";
 import {FaPhoneFlip} from "react-icons/fa6";
 import {RiLock2Fill} from "react-icons/ri";
+import { Link, Navigate } from "react-router-dom";
+
 
 const Register = () => {
     const [email, setEmail] = useState("");
@@ -27,7 +29,6 @@ const Register = () => {
                     withCredentials:true,
                     headers:{
                         "Content-Type": "application/json",
-
                     },
                 }
             );
@@ -44,16 +45,18 @@ const Register = () => {
     };
 
     if(isAuthorized){
-        return <Navigate to={"/"}/>;
+        return <Navigate to={"/"}/>
     }
-    return<>
-    <div className='authPage'>
-        <div className='container'>
-            <div className='header'>
-                <img src='/JOB-HUNTER logo.png' alt='logo'/>
-                <h3>Create a new account</h3>
-            </div>
-            <form>
+
+    return(
+    <>
+        <section className="authPage">
+            <div className='container'>
+                <div className='header'>
+                    <img src='/JOB-HUNTER logo.png' alt='logo'/>
+                    <h3>Create a new account</h3>
+                </div>
+                <form>
                 <div className='inputTag'>
                     <label>Register As</label>
                     <div>
@@ -113,17 +116,18 @@ const Register = () => {
                         <RiLock2Fill/>
                     </div>
                 </div>
-                <button onClick={handleRegister} type='submit'>Register</button>
+                <button onClick={handleRegister} type='submit'>
+                    Register
+                </button>
                 <Link to={'/login'}>Login Now</Link>
             </form>
         </div>
         <div className='banner'>
-            <img src="/JOB-HUNTER logo.png" alt='register'/>
+            <img src="/JOB-HUNTER logo.png" alt='login'/>
         </div>
-    </div>
-    
-    </>;
-
+    </section>
+    </>
+    );
     
 };
 export default Register;
