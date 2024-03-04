@@ -6,6 +6,7 @@ import {Link, Navigate} from "react-router-dom";
 import {FaPencilAlt, FaRegUser} from "react-icons/fa";
 import {MdOutlineMailOutline} from "react-icons/md";
 import {FaPhoneFlip} from "react-icons/fa6";
+import {RiLock2Fill} from "react-icons/ri";
 
 const Register = () => {
     const [email, setEmail] = useState("");
