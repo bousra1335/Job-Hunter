@@ -7,7 +7,7 @@ import {FaPencilAlt} from "react-icons/fa";
 import {MdOutlineMailOutline} from "react-icons/md";
 import {FaPhoneFlip} from "react-icons/fa6";
 import {RiLock2Fill} from "react-icons/ri";
-import { Link, Navigate } from "react-router-dom";
+import { Link as RouterLink, Navigate as RouterNavigate } from "react-router-dom";
 
 
 const Register = () => {
