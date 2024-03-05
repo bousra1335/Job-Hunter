@@ -123,7 +123,7 @@ const Register = () => {
                     </form>
                 </div>
                 <div className='banner'>
-                    <img src="/JOB-HUNTER logo.png" alt='login'/>
+                    <img src="/register.png" alt='login'/>
                 </div>
             </section>
         </>
