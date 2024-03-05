@@ -42,60 +42,60 @@ const Login = () => {
 
 
     return (
-    <>
-        <section className="authPage">
-            <div className="container">
-                <div className="header">
-                    <img src="/JOB-HUNTER logo.png" alt="logo" />
-                    <h3>Login to your account</h3>
+        <>
+            <section className="authPage">
+                <div className="container">
+                    <div className="header">
+                        <img src="/JOB-HUNTER logo.png" alt="logo" />
+                        <h3>Login to your account</h3>
+                    </div>
+                    <form>
+                        <div className="inputTag">
+                            <label>Login As</label>
+                            <div>
+                                <select value={role} onChange={(e) => setRole(e.target.value)}>
+                                    <option value="">Select Role</option>
+                                    <option value="Employer">Employer</option>
+                                    <option value="Job Seeker">Job Seeker</option>
+                                </select>
+                                <FaRegUser />
+                            </div>
+                        </div>
+                        <div className="inputTag">
+                            <label>Email Address</label>
+                            <div>
+                                <input
+                                    type="email"
+                                    placeholder="alk@gmail.com"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                                <MdOutlineMailOutline />
+                            </div>
+                        </div>
+                        <div className="inputTag">
+                            <label>Password</label>
+                            <div>
+                                <input
+                                    type="password"
+                                    placeholder="your password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                                <RiLock2Fill />
+                            </div>
+                        </div>
+                        <button type="submit" onClick={handleLogin}>
+                            Login
+                        </button>
+                        <Link to={"/register"}>Register Now</Link>
+                    </form>
                 </div>
-                <form>
-                    <div className="inputTag">
-                        <label>Login As</label>
-                        <div>
-                            <select value={role} onChange={(e) => setRole(e.target.value)}>
-                                <option value="">Select Role</option>
-                                <option value="Employer">Employer</option>
-                                <option value="Job Seeker">Job Seeker</option>
-                            </select>
-                            <FaRegUser />
-                        </div>
-                    </div>
-                    <div className="inputTag">
-                        <label>Email Address</label>
-                        <div>
-                            <input
-                                type="email"
-                                placeholder="alk@gmail.com"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            <MdOutlineMailOutline />
-                        </div>
-                    </div>
-                    <div className="inputTag">
-                        <label>Password</label>
-                        <div>
-                            <input
-                                type="password"
-                                placeholder="your password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                            <RiLock2Fill />
-                        </div>
-                    </div>
-                    <button type="submit" onClick={handleLogin}>
-                        Login
-                    </button>
-                    <Link to={"/register"}>Register Now</Link>
-                </form>
-            </div>
-            <div className="banner">
-                <img src="/login.png" alt="login" />
-            </div>
-        </section>
-    </>
+                <div className="banner">
+                    <img src="/login.png" alt="login" />
+                </div>
+            </section>
+        </>
     );
 };
 
