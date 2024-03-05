@@ -18,7 +18,7 @@ const Login = () => {
         e.preventDefault();
         try {
             const { data } = await axios.post(
-                "http://localhost:4000/api/v1/user/register",
+                "http://localhost:4000/api/v1/user/login",
                 {email, password, role},
                 {
                     headers: {
@@ -46,7 +46,7 @@ const Login = () => {
         <section className="authPage">
             <div className="container">
                 <div className="header">
-                    <img src="/login.png" alt="logo" />
+                    <img src="/JOB-HUNTER logo.png" alt="logo" />
                     <h3>Login to your account</h3>
                 </div>
                 <form>
@@ -66,7 +66,7 @@ const Login = () => {
                         <div>
                             <input
                                 type="email"
-                                placeholder="zk@gmail.com"
+                                placeholder="alk@gmail.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
