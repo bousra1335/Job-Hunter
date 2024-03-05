@@ -41,7 +41,7 @@ export const login = catchAsyncError(async(req, res,next)=> {
       new ErrorHandler(`User with provided email and ${role} not found!`, 404)
     );
   }
-  sendToken(user,200,res,"User logged in successfully!");
+  sendToken(user,201,res,"User logged in successfully!");
 });
 
 export const logout = catchAsyncError(async(req,res,next)=>{
@@ -49,7 +49,7 @@ export const logout = catchAsyncError(async(req,res,next)=>{
     .status(201)
     .cookie ("token","",{
       httpOnly: true,
-      expires: new Data(Data.now()),
+      expires: new Date(Date.now()),
     })
     .json({
       success: true,

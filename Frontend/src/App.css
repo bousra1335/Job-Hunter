@@ -263,7 +263,7 @@ p {
   justify-content: center;
 }
 .heroSection .container .title h1 {
-  max-width: 600px;
+  max-width: 500px;
 }
 .heroSection .container .title p {
   margin-top: 1.5rem;
@@ -273,7 +273,7 @@ p {
   overflow: hidden;
 }
 .heroSection .container .image img {
-  width: 100%;
+  width: 80%;
   height: 100%;
 }
 .heroSection .details {

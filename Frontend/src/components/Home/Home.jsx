@@ -9,12 +9,9 @@ import PopularCompanies from "./PopularCompanies";
 
 
 const Home = () => {
-
-  
   const { isAuthorized } = useContext(Context);
   if (!isAuthorized) {
-    console.log("hello")
-    return <Navigate to={"/Home"} />;
+    return <Navigate to={"/login"} />;
   }
   return (
     <>
