@@ -6,10 +6,15 @@ import HowItWorks from "./HowItWorks";
 import PopularCategories from "./PopularCategories";
 import PopularCompanies from "./PopularCompanies";
 
+
+
 const Home = () => {
+
+  
   const { isAuthorized } = useContext(Context);
   if (!isAuthorized) {
-    return <Navigate to={"/login"} />;
+    console.log("hello")
+    return <Navigate to={"/Home"} />;
   }
   return (
     <>
