@@ -2,6 +2,7 @@ import express from "express";
 import {
     getAllJobs,
     getmyJobs,
+    getSingleJob,
     postJob,
     updateJob,
     deleteJob,
