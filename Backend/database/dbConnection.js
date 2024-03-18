@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
+import dotenv from 'dotenv';
 
-
-export const dbConnection = ()=> {
+dotenv.config();
+export const dbConnection = () => {
     mongoose
         .connect(process.env.MONGO_URL, {
             dbName: "Job-Hunter",
@@ -11,6 +12,6 @@ export const dbConnection = ()=> {
             console.log("Connected to database!");
         })
         .catch((err) => {
-            console.log(`Some error occured while connecting to database: ${err}`);
+            console.log(`Some error occurred while connecting to database: ${err}`);
         });
 };
