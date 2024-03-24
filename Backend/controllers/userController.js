@@ -27,9 +27,6 @@ export const login = catchAsyncError(async (req, res, next) => {
   if (!email || !password || !role) {
     return next(new ErrorHandler("Please provide email, password and role."));
   }
-  if (password !== confirmPassword) {
-    return next(new ErrorHandler("Passwords do not match!"));
-  }
   const user = await User.findOne({ email }).select("+password");
   if (!user) {
     return next(new ErrorHandler("Invalid Email Or Password.", 400));
