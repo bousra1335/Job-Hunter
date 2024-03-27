@@ -1,6 +1,6 @@
 import React , {useContext, useState} from 'react';
 import { Context } from '../../main';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from "axios";
 
 const Application = () => {
@@ -38,7 +38,7 @@ const Application = () => {
                 withCredentials: true,
                 headers:{
                     "Content-Type" : "multipart/formData"
-                }
+                },
             });
             setName("");
             setEmail("");
