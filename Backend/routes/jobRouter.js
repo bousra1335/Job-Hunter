@@ -6,14 +6,13 @@ import {
     postJob,
     updateJob,
     deleteJob,
-}   from "../controllers/jobController.js";
+} from "../controllers/jobController.js";
 
-import {isAuthorized} from '../middlewares/auth.js';
-import { get } from "mongoose";
+import { isAuthorized } from '../middlewares/auth.js';
 
-const router= express.Router();
+const router = express.Router();
 
-router.get("/getall",getAllJobs);
+router.get("/getall", getAllJobs);
 router.post("/post", isAuthorized, postJob);
 router.get("/getMyJobs", isAuthorized, getMyJobs);
 router.put("/update/:id", isAuthorized, updateJob);

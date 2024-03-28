@@ -1372,3 +1372,22 @@ nav .hamburger {
 		z-index: 11;
 	}
 }
+
+.search {
+	width: 400px;
+	height: 50px;
+	border: 1px solid #ccc;
+	border-radius: 25px;
+	padding: 10px 15px;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search input {
+	flex: 1;
+	border: none;
+	outline: none;
+	font-size: 16px;
+}

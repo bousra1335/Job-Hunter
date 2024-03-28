@@ -3,18 +3,32 @@ import { Job } from "../models/jobSchema.js";
 import ErrorHandler from "../middlewares/error.js";
 
 export const getAllJobs = catchAsyncError(async (req, res, next) => {
-  const jobs = await Job.find({ expired: false });
+  const { search, sort } = req.query;
+
+  const query = { expired: false };
+  if (search) {
+    query.title = { $regex: search, $options: 'i' }; // Search by job title
+  }
+
+  let sortOption = {};
+  if (sort === 'latest') {
+    sortOption = { createdAt: -1 }; // Sort by latest jobs
+  } else if (sort === 'oldest') {
+    sortOption = { createdAt: 1 }; // Sort by oldest jobs
+  }
+
+  const jobs = await Job.find(query).sort(sortOption);
+
   res.status(200).json({
     success: true,
     jobs,
   });
 });
-
 export const postJob = catchAsyncError(async (req, res, next) => {
-  const {role} = req.user;
-  if (role === "Job Seeker"){
+  const { role } = req.user;
+  if (role === "Job Seeker") {
     return next(
-      new ErrorHandler("Job Seeker not allowed to access this resource.",400)
+      new ErrorHandler("Job Seeker not allowed to access this resource.", 400)
     );
   }
   const {
@@ -29,11 +43,11 @@ export const postJob = catchAsyncError(async (req, res, next) => {
     salaryTo,
   } = req.body;
 
-  if(!title || !description || !category || !country|| !city|| !location){
-    return next(new ErrorHandler("Please provide full job details.",400));
+  if (!title || !description || !category || !country || !city || !location) {
+    return next(new ErrorHandler("Please provide full job details.", 400));
   }
 
-  if ((!salaryFrom || !salaryTo ) && !fixedSalary) {
+  if ((!salaryFrom || !salaryTo) && !fixedSalary) {
     return next(
       new ErrorHandler(
         "Please either provide fixed salary or ranged salary.",
@@ -41,9 +55,9 @@ export const postJob = catchAsyncError(async (req, res, next) => {
       )
     );
   }
-  if (salaryFrom && salaryTo && fixedSalary){
+  if (salaryFrom && salaryTo && fixedSalary) {
     return next(
-      new ErrorHandler("Cannot Enter Fixed and Ranged Salary together.",400)
+      new ErrorHandler("Cannot Enter Fixed and Ranged Salary together.", 400)
     );
   }
   const postedBy = req.user._id;
@@ -68,31 +82,31 @@ export const postJob = catchAsyncError(async (req, res, next) => {
 
 });
 
-export const getMyJobs = catchAsyncError(async(req, res, next) =>{
-  const {role} = req.user;
-  if (role === "Job Seeker"){
+export const getMyJobs = catchAsyncError(async (req, res, next) => {
+  const { role } = req.user;
+  if (role === "Job Seeker") {
     return next(
-      new ErrorHandler("Job Seeker not allowed to access this resource.",400)
+      new ErrorHandler("Job Seeker not allowed to access this resource.", 400)
     );
   }
-  const myJobs = await Job.find({postedBy: req.user._id});
+  const myJobs = await Job.find({ postedBy: req.user._id });
   res.status(200).json({
     success: true,
     myJobs,
   });
 });
 
-export const updateJob = catchAsyncError(async(req, res, next) =>{
-  const {role} = req.user;
-  if (role === "Job Seeker"){
+export const updateJob = catchAsyncError(async (req, res, next) => {
+  const { role } = req.user;
+  if (role === "Job Seeker") {
     return next(
-      new ErrorHandler("Job Seeker not allowed to access this resource.",400)
+      new ErrorHandler("Job Seeker not allowed to access this resource.", 400)
     );
   }
-  const {id} =req.params;
+  const { id } = req.params;
   let job = await Job.findById(id);
-  if(!job){
-    return next(new ErrorHandler("OOPS! Job not found.",404));
+  if (!job) {
+    return next(new ErrorHandler("OOPS! Job not found.", 404));
   }
   job = await Job.findByIdAndUpdate(id, req.body, {
     new: true,
@@ -105,17 +119,17 @@ export const updateJob = catchAsyncError(async(req, res, next) =>{
   });
 });
 
-export const deleteJob = catchAsyncError(async(req,res,next)=>{
-  const {role} = req.user;
-  if (role === "Job Seeker"){
+export const deleteJob = catchAsyncError(async (req, res, next) => {
+  const { role } = req.user;
+  if (role === "Job Seeker") {
     return next(
-      new ErrorHandler("Job Seeker not allowed to access this resource.",400)
+      new ErrorHandler("Job Seeker not allowed to access this resource.", 400)
     );
   }
-  const {id} =req.params;
-  const job =await Job.findById(id);
-  if(!job){
-    return next(new ErrorHandler("OOPS! Job not found.",404));
+  const { id } = req.params;
+  const job = await Job.findById(id);
+  if (!job) {
+    return next(new ErrorHandler("OOPS! Job not found.", 404));
   }
   await job.deleteOne();
   res.status(200).json({
@@ -124,18 +138,18 @@ export const deleteJob = catchAsyncError(async(req,res,next)=>{
   });
 });
 
-export const getSingleJob = catchAsyncError(async(req,res,next)=>{
-  const {id}= req.params;
-  try{
-    const job =await Job.findById(id);
-    if(!job){
-      return next (new ErrorHandler("Job not found.",404));
+export const getSingleJob = catchAsyncError(async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const job = await Job.findById(id);
+    if (!job) {
+      return next(new ErrorHandler("Job not found.", 404));
     }
     res.status(200).json({
-      success:true,
+      success: true,
       job,
     });
-  } catch(error){
-    return next(new ErrorHandler(`Invalid ID / CastError`,404));
+  } catch (error) {
+    return next(new ErrorHandler(`Invalid ID / CastError`, 404));
   }
 });
