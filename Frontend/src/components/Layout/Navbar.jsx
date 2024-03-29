@@ -40,6 +40,7 @@ const Navbar = () => {
 							HOME
 						</Link>
 					</li>
+
 					<li>
 						<Link to={"/job/getall"} onClick={() => setShow(false)}>
 							ALL JOBS
@@ -64,11 +65,6 @@ const Navbar = () => {
 									VIEW YOUR JOBS
 								</Link>
 							</li>
-							<li>
-								<Link to={"/FAQ/faqlist"} onClick={() => setShow(false)}>
-									FAQ
-								</Link>
-							</li>
 						</>
 					) : (
 						<></>
@@ -78,6 +74,11 @@ const Navbar = () => {
 					<div className="themechange">
 						<button onClick={toggleTheme}>Toggle Theme</button>
 					</div>
+					<li>
+						<Link to="/faq" onClick={() => setShow(false)}>
+							FAQ
+						</Link>
+					</li>
 				</ul>
 				<div className="hamburger">
 					<GiHamburgerMenu onClick={() => setShow(!show)} />

@@ -17,6 +17,7 @@ import NotFound from "./components/NotFound/NotFound";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "./components/Theme/ThemeContext";
+import FAQPage from "./components/FAQ/FAQpage";
 
 const App = () => {
 	const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
@@ -34,7 +35,7 @@ const App = () => {
 			}
 		};
 		fetchUser();
-	}, [isAuthorized]);
+	}, [setIsAuthorized, setUser]);
 
 	return (
 		<ThemeProvider>
@@ -51,6 +52,7 @@ const App = () => {
 						<Route path="/applications/me" element={<MyApplications />} />
 						<Route path="/job/post" element={<PostJobs />} />
 						<Route path="/job/me" element={<MyJobs />} />
+						<Route path="/faq" element={<FAQPage />} />
 						<Route path="*" element={<NotFound />} />
 					</Routes>
 					<Footer />

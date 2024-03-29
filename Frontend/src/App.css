@@ -1391,3 +1391,47 @@ nav .hamburger {
 	outline: none;
 	font-size: 16px;
 }
+
+.faq-container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.faq-list {
+	margin-top: 20px;
+}
+
+.faq-item {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	margin-bottom: 10px;
+	background-color: var(--background-color);
+}
+
+.faq-question {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px;
+	background-color: var(--background-color);
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.faq-question:hover {
+	background-color: #8dc9b6;
+}
+
+.faq-question h3 {
+	margin: 0;
+	font-weight: 400;
+}
+
+.faq-answer {
+	padding: 15px;
+	background-color: var(--background-color);
+	font-weight: 400;
+	font-size: large;
+}
