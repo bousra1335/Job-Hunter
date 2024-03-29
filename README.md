@@ -14,7 +14,7 @@ Job-Hunter is a job seeking website built using the MERN stack (MongoDB, Express
 1. Clone the repository
 
 ```
-git clone https://github.com/username/job-hunter.git
+git clone https://github.com/bousra1335/Job-Hunter
 ```
 
 2. Install dependencies
@@ -26,7 +26,7 @@ npm install
 
 3. Configure MongoDB connection in `config/db.js`
 
-4. Start MongoDB server
+4. Start the MongoDB server
 
 5. Run the app
 
