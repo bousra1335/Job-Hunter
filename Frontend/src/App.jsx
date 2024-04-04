@@ -35,7 +35,7 @@ const App = () => {
 			}
 		};
 		fetchUser();
-	}, [setIsAuthorized, setUser]);
+	}, [isAuthorized]);
 
 	return (
 		<ThemeProvider>
