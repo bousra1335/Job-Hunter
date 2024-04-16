@@ -64,18 +64,27 @@ const PopularCategories = () => {
   return (
     <div className="categories">
       <h3>POPULAR CATEGORIES</h3>
-      <div className="banner">
-        {categories.map((element) => {
-          return (
-            <div className="card" key={element.id}>
-              <div className="icon">{element.icon}</div>
-              <div className="text">
-                <p>{element.title}</p>
-                <p>{element.subTitle}</p>
+      <div className="categories-section">
+        <div className="banner-headline">
+          <div>
+            <img src="/role.png" alt="role" />
+          </div>
+          <h5>Discover jobs across popular categories</h5>
+          <p>Select a category and we'll show you relevant jobs for it!</p>
+        </div>
+        <div className="banner">
+          { categories.map((element) => {
+            return (
+              <div className="card" key={ element.id }>
+                <div className="icon">{ element.icon }</div>
+                <div className="text">
+                  <h6>{ element.title }</h6>
+                  <p>{ element.subTitle }</p>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          }) }
+        </div>
       </div>
     </div>
   );

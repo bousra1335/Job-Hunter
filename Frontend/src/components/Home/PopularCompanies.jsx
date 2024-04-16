@@ -37,7 +37,7 @@ const PopularCompanies = () => {
                 <div className="content">
                   <div className="icon">{element.icon}</div>
                   <div className="text">
-                    <p>{element.title}</p>
+                    <h6>{element.title}</h6>
                     <p>{element.location}</p>
                   </div>
                 </div>

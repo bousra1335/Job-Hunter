@@ -263,7 +263,7 @@ return (
                                             <div>
                                                 <span>Description:</span>{" "}
                                                 <textarea
-                                                    rows={5}
+                                                    rows={10}
                                                     value={element.description}
                                                     disabled={
                                                         editingMode !== element._id ? true : false

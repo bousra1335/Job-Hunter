@@ -33,15 +33,14 @@ const HeroSection = () => {
 			<div className="heroSection">
 				<div className="container">
 					<div className="title">
-						<h1>Hunt the job that meets up</h1>
-						<h1> with your interests and skills</h1>
+						<h1>Hunt the <span id="job">job</span> that meets up with your <span className="highlight">interests</span> and <span className="highlight">skills</span>.</h1>
 						<p>
 							A job hunting website that will help you to find the job that
 							meets up the most with your interests and skills.
 						</p>
 					</div>
 					<div className="image">
-						<img src="/job.svg" alt="job" />
+						<img src="/job.png" alt="job" />
 					</div>
 				</div>
 				<div className="details">

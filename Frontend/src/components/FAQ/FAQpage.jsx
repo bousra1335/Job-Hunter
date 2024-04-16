@@ -37,12 +37,15 @@ const FAQPage = () => {
 
 	return (
 		<div className="faq-container">
-			<h1>Frequently Asked Questions</h1>
+			<div>
+				<h3>FAQ</h3>
+				<p>Answers to some questions you might have.</p>
+			</div>
 			<div className="faq-list">
 				{faqData.map((item, index) => (
 					<div className="faq-item" key={index}>
 						<div className="faq-question" onClick={() => toggleAnswer(index)}>
-							<h3>{item.question}</h3>
+							<h6>{item.question}</h6>
 							<span>{activeIndex === index ? "-" : "+"}</span>
 						</div>
 						{activeIndex === index && (

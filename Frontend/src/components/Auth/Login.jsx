@@ -88,7 +88,7 @@ const Login = () => {
                         <button type="submit" onClick={handleLogin}>
                             Login
                         </button>
-                        <Link to={"/register"}>Register Now</Link>
+                        <Link to={"/register"} className="reversed-text">Register Now</Link>
                     </form>
                 </div>
                 <div className="banner">
