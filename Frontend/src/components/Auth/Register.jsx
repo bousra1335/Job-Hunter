@@ -80,7 +80,7 @@ const Register = () => {
 									type="text"
 									value={name}
 									onChange={(e) => setName(e.target.value)}
-									placeholder="ksk"
+									placeholder="abc"
 								/>
 								<FaPencilAlt />
 							</div>
@@ -92,7 +92,7 @@ const Register = () => {
 									type="email"
 									value={email}
 									onChange={(e) => setEmail(e.target.value)}
-									placeholder="ksk@gmail.com"
+									placeholder="abc@gmail.com"
 								/>
 								<MdOutlineMailOutline />
 							</div>
@@ -104,7 +104,7 @@ const Register = () => {
 									type="number"
 									value={phone}
 									onChange={(e) => setPhone(e.target.value)}
-									placeholder="1234556565"
+									placeholder="12345678910"
 								/>
 								<FaPhoneFlip />
 							</div>
